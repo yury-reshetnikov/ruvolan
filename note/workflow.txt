@@ -1,0 +1,6 @@
+!2023-05-12 08:57:25
+
+obj0 - результат компиляции папки src0 средствами g++.
+gen1, obj1 - результат выполнения obj0/ruvolan src1/main.txt gen1 obj1
+gen2, obj2 - результат выполнения obj1/ruvolan src1/main.txt gen2 obj2
+gen1 и gen2 добавляем в git.
