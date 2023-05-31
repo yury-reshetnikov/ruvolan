@@ -1,11 +1,11 @@
-// ruvolan/src0/st/Primitive.hpp
+// ruvolan/src0/st/Примитив.hpp
 
 namespace st {
-    struct Primitive {
-	struct Form { // не путать с ru::Form - формой в общем виде
+    struct Примитив {
+	struct Форма { // не путать с ru::Form - формой в общем виде
 	    // для представлений разных форм слова, в том числе склонений, времён и падежей
 	};
-	struct Meaning {
+	struct Значение {
 	    // значения для многозначных слов
 	};
     };
