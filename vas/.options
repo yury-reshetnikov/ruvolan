@@ -4,6 +4,7 @@
 use strict;
 use warnings;
 use POSIX qw(uname);
+use Reshu::Utils;
 use Reshu::Debdata;
 
 my($h,$app);
@@ -25,6 +26,7 @@ my $cdefs = $cflags.q{ -E -dD};
 my $ast_emit = q{-fexceptions -fcxx-exceptions -emit-ast }.$cflags;
 my @ast_load = qw(-fexceptions -fcxx-exceptions -fmath-errno -pic-level 2 -fdeprecated-macro -target-cpu x86-64 -x c++ -std=c++11 -o /dev/null /dev/null -include-pch);
 
+my $options;
     my($clang, $cc_incp, @ast_include, @ldflags);
     $clang = '/usr/local/share/clang-3.7.1/bin/clang';
     $cc_incp = join ' ', map '-I'.$_, qw(
