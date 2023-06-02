@@ -1,0 +1,78 @@
+#!/usr/bin/perl -w
+# Автор: Юрий Решетников <reshu@mail.ru>
+
+use strict;
+use warnings;
+use POSIX qw(uname);
+use Reshu::Debdata;
+
+my($h,$app);
+while(@ARGV) {
+    if($ARGV[0] eq '--host') { shift @ARGV; $h = shift @ARGV; }
+    else {
+	$app = shift @ARGV;
+	warn eval dw qw(\@ARGV) if @ARGV;
+	last;
+    }
+}
+my $hu = (uname)[1];
+$h = $hu unless defined $h;
+
+my @clang_defs = qw(__STDC_CONSTANT_MACROS __STDC_LIMIT_MACROS);
+my $clang_defs = join ' ', map "-D$_", @clang_defs;
+my $cflags = q{-x c++ -std=c++11 -fPIC }.$clang_defs;
+my $cdefs = $cflags.q{ -E -dD};
+my $ast_emit = q{-fexceptions -fcxx-exceptions -emit-ast }.$cflags;
+my @ast_load = qw(-fexceptions -fcxx-exceptions -fmath-errno -pic-level 2 -fdeprecated-macro -target-cpu x86-64 -x c++ -std=c++11 -o /dev/null /dev/null -include-pch);
+
+    my($clang, $cc_incp, @ast_include, @ldflags);
+    $clang = '/usr/local/share/clang-3.7.1/bin/clang';
+    $cc_incp = join ' ', map '-I'.$_, qw(
+		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/include
+		/usr/local/share/clang-3.7.1/include
+	);
+    # `/usr/local/share/clang-3.7.1/pkgs/gcc5/bin/gcc -print-prog-name=cc1plus` -v
+    @ast_include = (qw(
+		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/include
+		/usr/local/share/clang-3.7.1/include
+
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/include/c++/5.5.0
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/include/c++/5.5.0/x86_64-unknown-linux-gnu
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/include/c++/5.5.0/backward
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/include
+		/usr/local/include
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/include
+		/usr/local/share/clang-3.7.1/pkgs/gcc5/lib/gcc/x86_64-unknown-linux-gnu/5.5.0/include-fixed
+		/usr/include
+
+		/usr/include/x86_64-linux-gnu
+
+	));
+    @ldflags = (qw(
+		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/lib
+		/usr/local/share/clang-3.7.1/lib
+	));
+    my $ast_incp = join ' ', map '-I'.$_, @ast_include;
+    $options = {
+	cdefs => "$clang $cdefs /dev/null",
+	cdefsin => "$clang $cdefs $cc_incp -",
+	cc => "$clang -g $cflags $cc_incp",
+	ld => $clang,
+	ldflags => join(' ', map "-L$_", @ldflags),
+	cc_ast => qq{$clang -nostdlibinc $ast_emit $ast_incp - -o },
+	tmp => [qw(DIR /tmp)],
+	ast_define => [@clang_defs],
+	ast_include => [@ast_include],
+	ast_load => [@ast_load],
+	build_macro => 1,
+    };
+
+$options->{host} ||= $h;
+$options->{short_source_path} = 1;
+print debdata_text $options;
+
+# Local Variables:
+# mode: perl
+# coding: utf-8-unix
+# tab-width: 8
+# End:
