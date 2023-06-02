@@ -39,7 +39,8 @@ if($app && $app =~ /\A((?:^|.*\/)obj(c|m\d*)?)\/vasek-build\/vasek-build\z/) {
 
 my $options;
     my($clang, $cc_incp, @ast_include, @ldflags);
-    $clang = '/usr/local/share/clang-3.7.1/bin/clang';
+    $clang = '/usr/local/share/clang-3.7.1/bin/clang++';
+    my $t = '--gcc-toolchain=/usr/local/share/clang-3.7.1/pkgs/gcc5';
     $cc_incp = join ' ', map '-I'.$_, qw(
 		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/include
 		/usr/local/share/clang-3.7.1/include
@@ -67,12 +68,12 @@ my $options;
 	), @vasek_obj);
     my $ast_incp = join ' ', map '-I'.$_, @ast_include;
     $options = {
-	cdefs => "$clang $cdefs /dev/null",
-	cdefsin => "$clang $cdefs $cc_incp -",
-	cc => "$clang -g $cflags $cc_incp",
-	ld => $clang,
+	cdefs => "$clang $t $cdefs /dev/null",
+	cdefsin => "$clang $t $cdefs $cc_incp -",
+	cc => "$clang $t -g $cflags $cc_incp",
+	ld => "$clang $t",
 	ldflags => join(' ', map "-L$_", @ldflags),
-	cc_ast => qq{$clang -nostdlibinc $ast_emit $ast_incp - -o },
+	cc_ast => qq{$clang $t -nostdlibinc $ast_emit $ast_incp - -o },
 	tmp => [qw(DIR /tmp)],
 	ast_define => [@clang_defs],
 	ast_include => [@ast_include],
