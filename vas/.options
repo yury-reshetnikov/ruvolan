@@ -4,6 +4,7 @@
 use strict;
 use warnings;
 use POSIX qw(uname);
+use Cwd 'abs_path';
 use Reshu::Utils;
 use Reshu::Debdata;
 
@@ -26,13 +27,23 @@ my $cdefs = $cflags.q{ -E -dD};
 my $ast_emit = q{-fexceptions -fcxx-exceptions -emit-ast }.$cflags;
 my @ast_load = qw(-fexceptions -fcxx-exceptions -fmath-errno -pic-level 2 -fdeprecated-macro -target-cpu x86-64 -x c++ -std=c++11 -o /dev/null /dev/null -include-pch);
 
+my(@vasek_obj,@vasek_include);
+if($app && $app =~ /\A((?:^|.*\/)obj(c|m\d*)?)\/vasek-build\/vasek-build\z/) {
+    push @vasek_obj, my $o = abs_path($1);
+    my $c = $2;
+    unless(defined $c) { $c = ''; }
+    elsif('m' eq substr $c, 0, 1) { $c = 'c'; }
+    $hu = 'build' if $hu eq 'build2';
+    push @vasek_include, abs_path($o."/../gen$c/$hu");
+}
+
 my $options;
     my($clang, $cc_incp, @ast_include, @ldflags);
     $clang = '/usr/local/share/clang-3.7.1/bin/clang';
     $cc_incp = join ' ', map '-I'.$_, qw(
 		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/include
 		/usr/local/share/clang-3.7.1/include
-	);
+	), @vasek_include;
     # `/usr/local/share/clang-3.7.1/pkgs/gcc5/bin/gcc -print-prog-name=cc1plus` -v
     @ast_include = (qw(
 		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/include
@@ -49,11 +60,11 @@ my $options;
 
 		/usr/include/x86_64-linux-gnu
 
-	));
+	), @vasek_include);
     @ldflags = (qw(
 		/usr/local/share/clang-3.7.1/pkgs/boost_1_58_0/lib
 		/usr/local/share/clang-3.7.1/lib
-	));
+	), @vasek_obj);
     my $ast_incp = join ' ', map '-I'.$_, @ast_include;
     $options = {
 	cdefs => "$clang $cdefs /dev/null",
