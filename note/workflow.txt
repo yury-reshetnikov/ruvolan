@@ -1,16 +1,16 @@
 !2023-06-02 12:53:13
 ~/project/vasek/scripts/call-objc-build objm vas/ruvolan.a
-TODO vas/.options
 
 
 !2023-05-31 11:18:31
 src0 -> vas
+obj0 -> objc
 
 
 !2023-05-12 09:30:56
 
 namespace ru - программное представление русских слов в общем виде.
-namespace st (Special Terminology) - термины программы, т.е. собственно те же русские слова, но смысл которых будет сильно ограничени формализован.
+namespace st (Special Terminology) - термины программы, т.е. собственно те же русские слова, но смысл которых будет сильно ограничен и формализован.
 
 Например st::Primitive и ru::Primitive. По смыслу русского языка st::Primitive является частным случаем ru::Primitive. А по структуре программы всё наоборот.
 
