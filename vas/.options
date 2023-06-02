@@ -82,6 +82,9 @@ my $options;
 
 $options->{host} ||= $h;
 $options->{short_source_path} = 1;
+$options->{load_macro_libs} = [
+    $vasek_obj[0].'/../objm', qw(vas.vasmacro.so vasek.vasmacro.so),
+];
 print debdata_text $options;
 
 # Local Variables:
