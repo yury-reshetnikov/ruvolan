@@ -33,7 +33,6 @@ if($app && $app =~ /\A((?:^|.*\/)obj(c|m\d*)?)\/vasek-build\/vasek-build\z/) {
     my $c = $2;
     unless(defined $c) { $c = ''; }
     elsif('m' eq substr $c, 0, 1) { $c = 'c'; }
-    $hu = 'build' if $hu eq 'build2';
     push @vasek_include, abs_path($o."/../gen$c/$hu");
 }
 

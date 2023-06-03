@@ -1,3 +1,7 @@
 [
-  "ruvolan.cpp"
+  "ruvolan.cpp",
+  "ruvolan/ru/Составить.cpp",
+  "ruvolan/st/Глагол.cpp",
+  "ruvolan/st/Примитив.cpp",
+  "ruvolan/st/Слово.cpp"
 ]
