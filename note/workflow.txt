@@ -1,3 +1,7 @@
+!2023-06-03 19:25:50
+~/project/vasek/scripts/call-objc-build objm0 vas/ruvolan.a
+
+
 !2023-06-02 12:53:13
 ~/project/vasek/scripts/call-objc-build objm vas/ruvolan.a
 
