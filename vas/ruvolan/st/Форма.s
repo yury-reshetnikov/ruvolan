@@ -1,9 +1,6 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-virtual Примитив *main_form() const
-    return this
-
-// Консольную::main_form() return new Конслоьная(this)
+: Примитив
 
 /*
  * Local Variables:

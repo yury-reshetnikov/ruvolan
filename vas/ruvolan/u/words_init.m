@@ -1,9 +1,8 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-virtual Примитив *main_form() const
-    return this
-
-// Консольную::main_form() return new Конслоьная(this)
+#parse_vas_macro
+    #vas::todo
+    return Vasek::VasCodeEntityShp()
 
 /*
  * Local Variables:
