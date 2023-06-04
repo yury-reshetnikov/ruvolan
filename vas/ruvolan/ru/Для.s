@@ -1,6 +1,6 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-: st::Глагол
+: st::Предлог
 
 /*
  * Local Variables:
