@@ -3,5 +3,5 @@
 #include "u.ns.inc"
 namespace u {
 
-    const Word words[] = }};
+    const Word words[] = {};
 }
