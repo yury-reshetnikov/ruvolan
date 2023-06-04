@@ -2,7 +2,7 @@
 #include "../../ruvolan.ref.inc"
 #include "Примитив.hpp"
 namespace st {
-    Примитив *Примитив::main_form() const {
+    Примитив *Примитив::main_form() {
 	return this;
     }
 

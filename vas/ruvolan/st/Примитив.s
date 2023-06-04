@@ -1,6 +1,6 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-virtual Примитив *main_form() const
+virtual Примитив *main_form()
     return this
 
 // Консольную::main_form() return new Конслоьная(this)
