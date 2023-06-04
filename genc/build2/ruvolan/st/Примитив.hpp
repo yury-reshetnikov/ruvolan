@@ -2,6 +2,7 @@
 #pragma once
 namespace st {
     struct Примитив {
+	virtual Примитив *main_form() const;
 	virtual void __vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden = false) const;
 	void __vas_auto_debdata_fields(::vas::Debdata::Context &ctx) const;
     };

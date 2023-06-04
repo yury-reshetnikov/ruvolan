@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Слово.hpp"
 namespace st {
+    Слово::Слово()
+	: actual_form(this)
+    {
+    }
+
+    Слово::Слово(Примитив *actual_form)
+	: actual_form(actual_form)
+    {
+    }
 
     void Слово::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {
@@ -24,5 +33,10 @@ namespace st {
 
     void Слово::__vas_auto_debdata_fields(::vas::Debdata::Context &ctx) const {
 	Примитив::__vas_auto_debdata_fields(ctx);
+	std::string indent(ctx.indent());
+	ctx.path.back() = "actual_form";
+	ctx.out << indent << "actual_form: ";
+	if(this->actual_form) this->actual_form->__vas_auto_debdata(ctx); else ctx.out << '0';
+	ctx.out << ",\n";
     }
 }

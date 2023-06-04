@@ -1,7 +1,16 @@
 [
   "ruvolan.cpp",
-  "ruvolan/ru/Составить.cpp",
+  "ruvolan/ru/Для.cpp",
+  "ruvolan/ru/Консольный.cpp",
+  "ruvolan/ru/Программа.cpp",
+  "ruvolan/ru/Составлять.cpp",
   "ruvolan/st/Глагол.cpp",
+  "ruvolan/st/Предлог.cpp",
+  "ruvolan/st/Прилагательное.cpp",
   "ruvolan/st/Примитив.cpp",
-  "ruvolan/st/Слово.cpp"
+  "ruvolan/st/Слово.cpp",
+  "ruvolan/st/Существительное.cpp",
+  "ruvolan/st/Форма.cpp",
+  "ruvolan/u.cpp",
+  "ruvolan/u/Word.cpp"
 ]

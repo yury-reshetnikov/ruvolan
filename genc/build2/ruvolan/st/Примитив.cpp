@@ -2,6 +2,9 @@
 #include "../../ruvolan.ref.inc"
 #include "Примитив.hpp"
 namespace st {
+    Примитив *Примитив::main_form() const {
+	return this;
+    }
 
     void Примитив::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {
