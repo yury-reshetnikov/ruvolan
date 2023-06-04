@@ -1,0 +1,7 @@
+[
+  "ruvolan.macro.cpp",
+  "ruvolan/ru/винительный_единственное.cpp",
+  "ruvolan/ru/винительный_женский.cpp",
+  "ruvolan/ru/совершенный.cpp",
+  "ruvolan/u/words_init.cpp"
+]
