@@ -3,10 +3,21 @@
 #include "words_init.hpp"
 namespace u {
     ::Vasek::VasCodeEntityShp words_init::parse_vas_macro(::Vasek::Parser::Base &parser, ::Vasek::Token::BaseShp name_token) {
-	std::cerr << "TODO ruvolan/u/words_init.m "
-	    "4" // vas::warn
-	    " parse_vas_macro " << std::endl << std::flush;
-	return Vasek::VasCodeEntityShp();
+	auto root = parser.main_data.root_lock();
+	auto exp = Vasek::Exp::Manual::shp(std::string());
+	root->deferred_parse.emplace(Vasek::Root::DefaultDeferredPriority, [root, exp]() -> void {
+	    Vasek::Data::NamespaceShp ru = root->checked_lookup_names({"ru"})->exp_type();
+	    for(auto &&w : ru->types) {
+		if(w.second->is_struct()) {
+		    std::string lc = w.first;
+		    boost::to_lower(lc);
+		    std::cerr << "TODO ruvolan/u/words_init.m "
+			"15" // vas::warn
+			" parse_vas_macro " << (::vas::dss() << "lc=" << (lc) << " " << "w.first=" << (w.first)).s->str() << std::endl << std::flush;
+		}
+	    }
+	});
+	return exp;
     }
 
     void words_init::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
