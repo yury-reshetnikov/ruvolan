@@ -11,7 +11,7 @@
 	    for auto &&w : ru->types
 		if w.second->is_struct() // отсечь макросы
 		    std::string lc = w.first
-		    boost::to_lower(lc)
+		    vas::utf8_ru_lc(lc)
 		    #vas::todo_vars lc w.first // *w.second
 	})
     return exp

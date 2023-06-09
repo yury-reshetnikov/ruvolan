@@ -10,7 +10,7 @@ namespace u {
 	    for(auto &&w : ru->types) {
 		if(w.second->is_struct()) {
 		    std::string lc = w.first;
-		    boost::to_lower(lc);
+		    vas::utf8_ru_lc(lc);
 		    std::cerr << "TODO ruvolan/u/words_init.m "
 			"15" // vas::warn
 			" parse_vas_macro " << (::vas::dss() << "lc=" << (lc) << " " << "w.first=" << (w.first)).s->str() << std::endl << std::flush;
