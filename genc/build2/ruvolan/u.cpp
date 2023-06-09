@@ -3,5 +3,10 @@
 #include "u.ns.inc"
 namespace u {
 
-    const Word words[] = {};
+    const Word words[] = {
+	{"для",[]() -> st::Примитив * { return new ru::Для; }},
+	{"консольный",[]() -> st::Примитив * { return new ru::Консольный; }},
+	{"программа",[]() -> st::Примитив * { return new ru::Программа; }},
+	{"составлять",[]() -> st::Примитив * { return new ru::Составлять; }}
+};
 }
