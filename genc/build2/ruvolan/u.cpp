@@ -1,5 +1,9 @@
 // ruvolan/u.n
 #include "../ruvolan.ref.inc"
+#include "ru/Для.hpp"
+#include "ru/Консольный.hpp"
+#include "ru/Программа.hpp"
+#include "ru/Составлять.hpp"
 #include "u.ns.inc"
 namespace u {
 
