@@ -3,6 +3,8 @@
 #include "../st/Существительное.hpp"
 namespace ru {
     struct Программа : st::Существительное {
+	Программа();
+	Программа(Примитив *actual_form);
 	virtual void __vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden = false) const override;
 	void __vas_auto_debdata_fields(::vas::Debdata::Context &ctx) const;
     };

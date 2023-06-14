@@ -3,6 +3,8 @@
 #include "../st/Предлог.hpp"
 namespace ru {
     struct Для : st::Предлог {
+	Для();
+	Для(Примитив *actual_form);
 	virtual void __vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden = false) const override;
 	void __vas_auto_debdata_fields(::vas::Debdata::Context &ctx) const;
     };

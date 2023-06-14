@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Существительное.hpp"
 namespace st {
+    Существительное::Существительное()
+	: Слово()
+    {
+    }
+
+    Существительное::Существительное(Примитив *actual_form)
+	: Слово(actual_form)
+    {
+    }
 
     void Существительное::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

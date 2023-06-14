@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Программа.hpp"
 namespace ru {
+    Программа::Программа()
+	: st::Существительное()
+    {
+    }
+
+    Программа::Программа(Примитив *actual_form)
+	: st::Существительное(actual_form)
+    {
+    }
 
     void Программа::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

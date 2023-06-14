@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Предлог.hpp"
 namespace st {
+    Предлог::Предлог()
+	: Слово()
+    {
+    }
+
+    Предлог::Предлог(Примитив *actual_form)
+	: Слово(actual_form)
+    {
+    }
 
     void Предлог::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

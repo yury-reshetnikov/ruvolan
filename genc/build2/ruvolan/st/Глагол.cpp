@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Глагол.hpp"
 namespace st {
+    Глагол::Глагол()
+	: Слово()
+    {
+    }
+
+    Глагол::Глагол(Примитив *actual_form)
+	: Слово(actual_form)
+    {
+    }
 
     void Глагол::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Составлять.hpp"
 namespace ru {
+    Составлять::Составлять()
+	: st::Глагол()
+    {
+    }
+
+    Составлять::Составлять(Примитив *actual_form)
+	: st::Глагол(actual_form)
+    {
+    }
 
     void Составлять::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

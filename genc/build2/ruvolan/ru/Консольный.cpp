@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Консольный.hpp"
 namespace ru {
+    Консольный::Консольный()
+	: st::Прилагательное()
+    {
+    }
+
+    Консольный::Консольный(Примитив *actual_form)
+	: st::Прилагательное(actual_form)
+    {
+    }
 
     void Консольный::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

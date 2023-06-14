@@ -4,13 +4,10 @@
 
 Примитив *actual_form
 
+#vas::attribute inherit_empty_constructor
 #vas::constructor()
     : actual_form(this)
     ;
-
-// #vas::constructor(Примитив *actual_form)
-//     : actual_form(actual_form)
-//     ;
 
 #vas::construct_fields
 

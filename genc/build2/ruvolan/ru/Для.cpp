@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Для.hpp"
 namespace ru {
+    Для::Для()
+	: st::Предлог()
+    {
+    }
+
+    Для::Для(Примитив *actual_form)
+	: st::Предлог(actual_form)
+    {
+    }
 
     void Для::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {

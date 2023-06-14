@@ -2,6 +2,15 @@
 #include "../../ruvolan.ref.inc"
 #include "Прилагательное.hpp"
 namespace st {
+    Прилагательное::Прилагательное()
+	: Слово()
+    {
+    }
+
+    Прилагательное::Прилагательное(Примитив *actual_form)
+	: Слово(actual_form)
+    {
+    }
 
     void Прилагательное::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {
