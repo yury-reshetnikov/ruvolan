@@ -7,7 +7,6 @@ namespace u {
     struct Word {
 	const char *word;
 	std::function<st::Примитив * () > create;
-	void dummy(st::Примитив *);
 	void __vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden = false) const;
     };
 

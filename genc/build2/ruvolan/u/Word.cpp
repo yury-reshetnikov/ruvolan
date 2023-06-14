@@ -2,8 +2,6 @@
 #include "../../ruvolan.ref.inc"
 #include "Word.hpp"
 namespace u {
-    void Word::dummy(st::Примитив *) {
-    }
 
     void Word::__vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden) const {
 	if(hidden) {
