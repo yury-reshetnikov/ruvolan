@@ -11,9 +11,10 @@ namespace ru {
 		::vas::Error::Pos(__FILE__, __LINE__), "parse_vas_macro", (::vas::dss() << "*token:" << *token << " valid:Word").s->str());
 	})(parser);
 	parser.cmd_end();
+	auto s = Vasek::Data::Struct::shp(parser.main_data.up_lock(), form->text, fs::directory_entry());
 	std::cerr << "TODO ruvolan/ru/совершенный.m "
-	    "6" // vas::warn
-	    " parse_vas_macro " << std::endl << std::flush;
+	    "8" // vas::warn
+	    " parse_vas_macro " << (::vas::dss() << "form->text=" << (form->text) << " " << "s->qname()=" << (s->qname())).s->str() << std::endl << std::flush;
 	return Vasek::VasCodeEntityShp();
     }
 

@@ -3,7 +3,9 @@
 #parse_vas_macro
     auto form = #Vasek::Reader::require(parser, Word)
     parser.cmd_end()
-    #vas::todo
+    auto s = Vasek::Data::Struct::shp(parser.main_data.up_lock(),
+	form->text, fs::directory_entry())
+    #vas::todo_vars form->text s->qname()
     return Vasek::VasCodeEntityShp()
 
 /*

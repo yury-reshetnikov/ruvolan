@@ -6,7 +6,8 @@ namespace st {
 namespace u {
     struct Word {
 	const char *word;
-	st::Примитив (*create)();
+	std::function<st::Примитив * () > create;
+	void dummy(st::Примитив *);
 	void __vas_auto_debdata(::vas::Debdata::Context &ctx, bool hidden = false) const;
     };
 

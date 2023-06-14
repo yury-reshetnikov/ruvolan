@@ -1,7 +1,8 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
 const char *word
-st::Примитив *(*create)()
+// st::Примитив *(*create)()
+std::function<st::Примитив *()> create
 
 /*
  * Local Variables:
