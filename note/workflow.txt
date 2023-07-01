@@ -1,3 +1,7 @@
+!2023-07-01 22:43:14
+scripts/call-ruvolan test/dec2hex.txt
+
+
 !2023-06-02 12:53:13
 ~/project/vasek/scripts/call-objc-build objm vas/ruvolan.a
 

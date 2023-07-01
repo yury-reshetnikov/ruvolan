@@ -1,10 +1,12 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-#vas::main_try
-    if argc != 1
-	#vas::throw #"$=argc"
-    u::Application::shp(argv[1])->build()
-    return 0
+: std::enable_shared_from_this<File>
+
+vas::File src
+
+#vas::constructor(std::string src_file_name)
+    : src(src_file_name, O_RDONLY)
+    ;
 
 /*
  * Local Variables:

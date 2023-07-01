@@ -1,10 +1,9 @@
 // Автор: Юрий Решетников <reshu@mail.ru>
 
-#vas::main_try
-    if argc != 1
-	#vas::throw #"$=argc"
-    u::Application::shp(argv[1])->build()
-    return 0
+: File
+
+void build()
+    #vas::todo
 
 /*
  * Local Variables:
