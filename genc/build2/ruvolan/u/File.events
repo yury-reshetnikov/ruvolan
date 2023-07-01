@@ -1,0 +1,6 @@
+{   "u::File": [
+    {   event: 0,
+	owner: "u::File",
+	proc: "u::File::on_child_declaration",
+    },
+]}

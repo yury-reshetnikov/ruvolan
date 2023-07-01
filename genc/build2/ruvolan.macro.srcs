@@ -3,5 +3,6 @@
   "ruvolan/ru/винительный_единственное.cpp",
   "ruvolan/ru/винительный_женский.cpp",
   "ruvolan/ru/совершенный.cpp",
+  "ruvolan/u/File/on_child_declaration.cpp",
   "ruvolan/u/words_init.cpp"
 ]

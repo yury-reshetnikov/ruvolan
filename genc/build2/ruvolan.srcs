@@ -14,5 +14,7 @@
   "ruvolan/st/Существительное.cpp",
   "ruvolan/st/Форма.cpp",
   "ruvolan/u.cpp",
+  "ruvolan/u/Application.cpp",
+  "ruvolan/u/File.cpp",
   "ruvolan/u/Word.cpp"
 ]
